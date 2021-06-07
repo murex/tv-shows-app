@@ -33,7 +33,7 @@
     "name": "A Passionate Woman",
     "summary":"Feeling trapped inside her conventional marriage, she abandons herself to a passion she never before dared believe possible",
     "genre": ["Drama","Romance"],
-    "img": "/assets/images/the_bionic_woman.jpg",
+    "img": "/assets/images/a_passionate_woman.jpg",
     "rating": 
 }
 
