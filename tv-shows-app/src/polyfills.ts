@@ -1,3 +1,11 @@
+/*******************************************************************************
+* Copyright (c) {2003-2021} Murex S.A.S. and its affiliates.
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the MIT License
+* which accompanies this distribution, and is available at
+* https://opensource.org/licenses/MIT
+******************************************************************************
+*/
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
