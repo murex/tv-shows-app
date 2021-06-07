@@ -37,3 +37,8 @@ footer .social-media:not(:last-child) {
   box-shadow: 5px 6px 6px 2px lightgray;
   transform: scale(1.02)
 }
+
+/* Show details */
+.movie-genre-badge {
+  margin-right: 5px;
+}
