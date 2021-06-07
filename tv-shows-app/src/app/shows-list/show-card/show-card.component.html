@@ -1,0 +1,21 @@
+<div class="card h-100 show-list-card">
+  <img class="card-img-top" [src]="show.image?.medium" />
+  <div class="card-body">
+    <h5 class="text-center">{{ show.name }}</h5>
+    <p class="card-text" [innerHTML]="show.summary"></p>
+  </div>
+  <div class="card-footer">
+    <span
+      class="badge rounded-pill bg-secondary"
+      *ngFor="let genre of show.genres"
+      >{{ genre }}
+    </span>
+    <span class="float-end"
+      ><i class="fa fa-star"></i>
+      {{
+        show.rating?.average? (show.rating.average| number: "1.1-1") : "-"
+      }}
+    </span>
+  </div>
+  <a [routerLink]="['/shows', show.id]" class="stretched-link"></a>
+</div>

@@ -1,0 +1,28 @@
+<table class="table table-responsive caption-top">
+  <caption>
+    <i>The main cast based on the number of appearances</i>
+  </caption>
+  <thead class="table-secondary">
+    <tr>
+      <th scope="col">Character</th>
+      <th scope="col">Name</th>
+      <th scope="col">Date Of Birth</th>
+      <th scope="col">Country</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let castMember of castMembers">
+      <th scope="row">{{castMember.character.name}}</th>
+      <td>{{castMember.person.name}}</td>
+      <td>{{castMember.person.birthday || '-'}}</td>
+      <td>{{castMember.person.country?.name || '-'}}</td>
+      <td>
+        <img
+          [src]="castMember.character.image?.medium"
+          [style.width.px]="100"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
