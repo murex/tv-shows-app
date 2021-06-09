@@ -1,12 +1,16 @@
-# tv-shows-app
+# Introduction
 
 This project is an Angular based project that showcases the basic capabilities of Angular. It displays TV shows, their details and their main cast.
+
+The `main` branch contains boiler-plate files used to develop the app into the final functioning version in `tv-shows-app` branch.
 
 <kbd>![image](https://user-images.githubusercontent.com/29376981/121323175-45a87c80-c918-11eb-84d2-1e8803e688b4.png)</kbd>
 
 <kbd>![screencapture-localhost-4200-shows-165-2021-06-09-11_49_02](https://user-images.githubusercontent.com/29376981/121324383-5ad1db00-c919-11eb-82a0-7b8044ca8690.png)</kbd>
 
 ## Pre-requisites
+
+In order to successfully code and run your application the below steps are required:
 
 - Download and Install VSCode from https://code.visualstudio.com/download
 - Install Angular Essentials (Version 11) extension in VSCode
@@ -20,10 +24,11 @@ This project is an Angular based project that showcases the basic capabilities o
 
 ## Running the APP
 
-To run the application, in your terminal run: `npm start`
+To run the final version with full features of the application, checkout the `tv-shows-app` branch and in your terminal run: `npm start`
 
 This will serve the application on http://localhost:4200 and will open your default browser
 
+In case you would like to adjust the port, run `ng serve -p <port>` instead of `npm start`
 
 ## License:
 
