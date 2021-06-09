@@ -2,9 +2,9 @@
 
 This project is an Angular based project that showcases the basic capabilities of Angular. It displays TV shows, their details and their main cast.
 
-![image](https://user-images.githubusercontent.com/29376981/121323175-45a87c80-c918-11eb-84d2-1e8803e688b4.png)
+<kbd>![image](https://user-images.githubusercontent.com/29376981/121323175-45a87c80-c918-11eb-84d2-1e8803e688b4.png)</kbd>
 
-![screencapture-localhost-4200-shows-165-2021-06-09-11_49_02](https://user-images.githubusercontent.com/29376981/121324383-5ad1db00-c919-11eb-82a0-7b8044ca8690.png)
+<kbd>![screencapture-localhost-4200-shows-165-2021-06-09-11_49_02](https://user-images.githubusercontent.com/29376981/121324383-5ad1db00-c919-11eb-82a0-7b8044ca8690.png)</kbd>
 
 ## Pre-requisites
 
