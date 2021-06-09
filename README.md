@@ -1,8 +1,8 @@
 # Introduction
 
-This project is an Angular based project that showcases the basic capabilities of Angular. It displays TV shows, their details and their main cast.
+This project is Angular based that showcases the basic capabilities of Angular. It displays TV shows, their details, and their main cast.
 
-The `main` branch contains boiler-plate files used to develop the app into the final functioning version in `tv-shows-app` branch.
+Under the branch `main`, you can find the boiler-plate files that are the starting point for building this application! To view a full working version, you can checkout and run the branch `tv-shows-app`
 
 <kbd>![image](https://user-images.githubusercontent.com/29376981/121323175-45a87c80-c918-11eb-84d2-1e8803e688b4.png)</kbd>
 
@@ -30,7 +30,7 @@ This will serve the application on http://localhost:4200 and will open your defa
 
 In case you would like to adjust the port, run `ng serve -p <port>` instead of `npm start`
 
-## License:
+## License
 
 The `tv-shows-app` and the accompanying materials are made available
 under the terms of the MIT License ([here](LICENSE.md)) which accompanies this
