@@ -1,0 +1,2 @@
+Search URL: http://api.tvmaze.com/search/shows?q=woman
+Shows URL: https://api.tvmaze.com/shows
