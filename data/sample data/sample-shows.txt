@@ -9,28 +9,28 @@
     "name": "Wonder Woman",
     "summary":"A colorful spin on Charles Moulton's comic about the Amazon goddess battling evil during World War II and later, in more recent times, against new enemies",
     "genres": ["Action","Adventure","Science-Fiction"],
-    "img": "/assets/images/wonder_woman.jpg",
+    "img": "https://static.tvmaze.com/uploads/images/medium_portrait/7/18638.jpg",
     "rating": 6.3
 },
 {
     "name": "The Pioneer Woman",
     "summary":"The Pioneer Woman is an open invitation into Ree Drummond's life",
     "genres": ["Food"],
-    "img": "/assets/images/the_pioneer_woman.jpg",
+    "img": "https://static.tvmaze.com/uploads/images/medium_portrait/228/571473.jpg",
     "rating": 6.9
 },
 {
     "name": "The Bionic Woman",
     "summary":"She's no ordinary schoolteacher…she's The Bionic Woman",
     "genres": ["Action","Adventure","Science-Fiction"],
-    "img": "/assets/images/the_bionic_woman.jpg",
+    "img": "https://static.tvmaze.com/uploads/images/medium_portrait/0/2303.jpg",
     "rating": 7.6
 },
 {
     "name": "A Passionate Woman",
     "summary":"Feeling trapped inside her conventional marriage, she abandons herself to a passion she never before dared believe possible",
     "genres": ["Drama","Romance"],
-    "img": "/assets/images/a_passionate_woman.jpg",
+    "img": "https://static.tvmaze.com/uploads/images/medium_portrait/27/68133.jpg",
     "rating": 2
 }
 
