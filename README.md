@@ -19,7 +19,7 @@ In order to successfully code and run your application the below steps are requi
 - Run the below commands to make sure the steps above are done successfully:
   - Node -v
   - Npm -v
-  - Ng -v (this should return an Angular version greater than 9) 
+  - Ng v (this should return an Angular version greater than 9) 
 - Install GIT from https://git-scm.com [Optional]
 
 ## Running the APP
