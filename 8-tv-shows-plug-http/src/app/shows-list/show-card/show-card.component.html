@@ -1,0 +1,21 @@
+<!-- /*******************************************************************************
+* Copyright (c) {2003-2021} Murex S.A.S. and its affiliates.
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the MIT License
+* which accompanies this distribution, and is available at
+* https://opensource.org/licenses/MIT
+*******************************************************************************/ -->
+<div class="card h-100 show-list-card">
+  <img class="card-img-top" [src]="showResponse.show.image?.medium" />
+  <div class="card-body">
+    <h5 class="text-center">{{ showResponse.show.name }}</h5>
+    <p class="card-text" [innerHtml]="showResponse.show.summary"></p>
+  </div>
+  <div class="card-footer">
+    <span class="badge rounded-pill bg-secondary" *ngFor="let genre of showResponse.show.genres">{{genre}}</span>
+    <span class="float-end"
+      ><i class="fa fa-star">{{ showResponse.show.rating.average? (showResponse.show.rating.average | number: "1.1-1" ) : "-"}}</i>
+    </span>
+  </div>
+  <a class="stretched-link"></a>
+</div>
