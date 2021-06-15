@@ -44,20 +44,16 @@
         <button class="btn btn-secondary" (click)="toggleShowCastTable()">
           {{ (this.showCastTable ? "Hide " : "Show ") + "Cast" }}
         </button>
-        <div
-          class="py-5"
-          *ngIf="
-            showCastTable && castMembers.length > 0;
-            else showCastTable && elseBlock
-          "
-        >
-          <tv-show-cast [castMembers]="castMembers"></tv-show-cast>
+        <div *ngIf="showCastTable">
+          <div class="py-5" *ngIf="castMembers.length > 0; else elseBlock">
+            <tv-show-cast [castMembers]="castMembers"></tv-show-cast>
+          </div>
+          <ng-template #elseBlock
+            ><h4 class="text-center text-muted">
+              <i>There are no cast members to display</i>
+            </h4></ng-template
+          >
         </div>
-        <ng-template #elseBlock
-          ><h4 class="text-center text-muted">
-            <i>There are no cast members to display</i>
-          </h4></ng-template
-        >
       </div>
     </div>
     <div class="card-footer text-center">
