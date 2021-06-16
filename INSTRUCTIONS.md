@@ -10,7 +10,7 @@
   - [6- Interfaces](#6--interfaces)
   - [7- Shows Service](#7--shows-service)
   - [8- HTTP](#8--http)
-  - [9- Routing http link](#9--routing-http-link)
+  - [9- Routing](#9--routing)
   - [10- Finalization](#10--finalization)
 
 # Pre-requisites
@@ -31,7 +31,7 @@ To setup your development environment please do the following steps:
 
 ## 2- Creating tv-shows project
 
-Now let's create our **Angular** tv-shows porject:
+Now let's create our **Angular** tv-shows project:
 - Go to the desired directory
 - Open CMD
 - Run: `ng new tv-shows --skip-tests --prefix tv`
@@ -127,7 +127,7 @@ shows: any[] = [
 - Add **string interpolation** to bind the card header and card paragraph to the show name and show summary respectively.
 -  Then add **property binding** to bind the img src attribute to the show img. 
 - Finally add **event binding** to invoke `onSearchChanged()` when the input change event is fired. 
-- Your **shows-list.component.html** and **shows-list-component.ts** files should look similar to the ones the repo [here](https://github.com/murex/tv-shows-app/tree/3-tv-shows-add-databinding/3-tv-shows-add-databinding/src/app/shows-list)
+- Your **shows-list.component.html** and **shows-list-component.ts** files should look similar to the ones in the repo [here](https://github.com/murex/tv-shows-app/tree/3-tv-shows-add-databinding/3-tv-shows-add-databinding/src/app/shows-list)
 - Run the application: `npm start`
 
 ## [4- Directives](https://github.com/murex/tv-shows-app/tree/4-tv-shows-add-directives)
@@ -155,6 +155,7 @@ In this section, we will use angular built-in directives to display multiple sho
     - Loop over the show genres using `*ngFor` and display each in a badge
     - Use **2 way binding**, ngModel, to bind the input field value to the  searchString property
     - Format the rating using the **number pipe**.
+    
     The resulting files should look similar to [this](https://github.com/murex/tv-shows-app/blob/4-tv-shows-add-directives/4-tv-shows-add-directives/src/app/shows-list/)
     - Run the application: `npm start`
     - Change **woman** in the **search field** to **engineer** for example then hit enter, click **F12** and check the **console**
@@ -187,7 +188,7 @@ In this section, we will be introducting nested components and parent->child com
     import { Input } from '@angular/core';
     @Input() show: any
     ```
-- Add the **TVShowComponent selector** in the **shows-list.component.html** and **pass in** the show from the container component **ShowsListComponent** to the **nested** **ShowCardComponent** like this: 
+- Add the **tv-show-card selector** in the **shows-list.component.html** and **pass in** the show from the container component **ShowsListComponent** to the **nested** **ShowCardComponent** like this: 
     ```html
     <div class="col" *ngFor="let show of shows">
       <tv-show-card *ngIf="show" [show]="show"></tv-show-card>
@@ -323,7 +324,7 @@ In this section, we will interact with a **backend** using **http** to retrieve 
     ```
 - In the **shows-list.component.ts**:
     - Change the shows data type to **ShowResponse** and import it. Then subscribe to the **observable** returned by `getShows()`
-    - **Unsubscribe** from the observable in the **ngOnDestroy** hook (import onDestroy)
+    - **Unsubscribe** from the observable by implementing the **OnDestroy** hook (import OnDestroy)
     - Your file should now look similar to this:
         ```js
         import { Subscription } from 'rxjs';
@@ -476,14 +477,14 @@ Now we will fill in the show details component data fetched from **tvmaze**. To 
         ```
   - Define a `show` proeprty and assign the corresponding value to it in the `ngOnInit` using the show's id (hint: you need to inject the **ShowsService**)
   - Define an `array of cast members` and populate it in the `ngOnInit`
-  - Don't forget to **unsubscribe** in the `ngOnDestroy` lifecycle hook 
+  - Don't forget to **unsubscribe** in the `OnDestroy` lifecycle hook 
   - The resulting **show-details.components.ts** should look like the one [here](https://github.com/murex/tv-shows-app/blob/9-tv-shows-show-details-component/9-tv-shows-show-details-component/src/app/show-details/show-details.component.ts)
 - In the **show-details.component.html** bind the data to show and cast data like [here](https://github.com/murex/tv-shows-app/blob/9-tv-shows-show-details-component/9-tv-shows-show-details-component/src/app/show-details/show-details.component.ts)
 - Run the application: `npm start`
 
 Click on show card, the details should show according to the selected show
 
-Finally, we will mae the back button **navigate** to the shows page. To do this:
+Finally, we will make the back button **navigate** to the shows page. To do this:
 
 - In the **show-details.component.ts** define a `back` method which will navigate back to the shows page. Use the angular router to do so:
   - Inject the angular `Router` and import it as such:
@@ -512,7 +513,7 @@ Click on a show card then click on back to the return to the shows page.
 
 In this section we will extract the show cast table into a separate component to polish our app. The steps to do so are:
 
-- Create the **ShowCast** component inside the show-details folder Run:` ng g c ShowCast`
+- Create the **ShowCast** component inside the show-details folder Run: `ng g c ShowCast`
 - Extract the cast table from the **show-details.component.html** and paste it in the **show-cast.component.html**
 - It should look like this file [here](https://github.com/murex/tv-shows-app/blob/tv-shows-app/tv-shows-app/src/app/show-details/show-cast/show-cast.component.html)
 - Render the ShowCastComponent in the show-details.component.html by adding its selector where the table element was. Don’t forget to only show the cast table if there are cast members, otherwise show a nice message saying so!
