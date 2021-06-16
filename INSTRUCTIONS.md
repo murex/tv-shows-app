@@ -10,7 +10,8 @@
   - [6- Interfaces](#6--interfaces)
   - [7- Shows Service](#7--shows-service)
   - [8- HTTP](#8--http)
-  - [9- Routing http link:](#9--routing-http-link)
+  - [9- Routing http link](#9--routing-http-link)
+  - [10- Finalization](#10--finalization)
 
 # Pre-requisites
 
@@ -427,10 +428,111 @@ In the *show-card.component.html* you can replace the rating *string interpolati
 </span>
 ```
 
-## 9- Routing http link:
+## [9- Routing](https://github.com/murex/tv-shows-app/tree/9-tv-shows-show-details-component)
 
 In this section we will define routes to the **Shows** page and **Show Details** page to navigate to alongside fill in the details page.
 
 - Create the **ShowDetailsComponent** using `ng g c ShowDetails`
 - Copy the content of the html file from [here](https://github.com/murex/tv-shows-app/blob/main/data/html%20files/show-details-temp.component.html)
-- In the **app-routing.module.ts**
+- In the **app-routing.module.ts** configure the routes to the **ShowListComponent** and **ShowDetailsComponent**
+
+    ```js
+    const routes: Routes = [
+        { path: 'shows', component: ShowsListComponent },
+        { path: 'show/:id', component: ShowDetailsComponent },
+        { path: '**', redirectTo: '/shows' },
+    ];
+    ```
+- In the **app.component.html**:
+  - use property binding to bind the router link of the Tv Shows hyperlink to the shows path. 
+  - set the router link active attribute to active for the link to be highlighted upon selection
+  - remove the **tv-shows-list selector**
+  - instead add the router-outlet directive to indicate where the matching components should show
+  - The final **app.component.html** should look like the one in the repo [here](https://github.com/murex/tv-shows-app/blob/tv-shows-app/tv-shows-app/src/app/app.component.html)
+- In the **show-card.component.html**, use property binding to bind the router link of the show card to the show path. Don’t forget to pass in the show id parameter
+    ```html
+    <a class="stretched-link"
+    [routerLink]="['/show', showResponse.show.id]">
+    </a>
+    ```
+- Run the application: `npm start`
+
+Now we will fill in the show details component data fetched from **tvmaze**. To do so:
+
+- Under the models folder, run: `ng g i CastMember` and copy the content from the file [here](https://github.com/murex/tv-shows-app/blob/main/data/interfaces/cast-member.ts) into the newly created **cast-member.ts**
+- In the **shows.service.ts**:
+  - Define a method `getShow` that takes in a show id as input and returns an **Observable<Show>** Use the url `https://api.tvmaze.com/shows/${id}`
+  - Define a method `getCast` that takes in a show id as input and returns an **Observable<CastMember[]>** Use the url `https://api.tvmaze.com/shows/${id}/cast`
+  - The resulting file should look like the one [here](https://github.com/murex/tv-shows-app/blob/tv-shows-app/tv-shows-app/src/app/services/shows.service.ts)
+- In the **show-details.component.ts**:
+  - Retrieve the id from the **activated route**
+    - Inject and import the **ActivatedRoute**
+        ```js
+        import {ActivatedRoute} from '@angular/router';
+        ```
+    - Retrieve the id from the snapshot params map:
+        ```js
+        const id = this.route.snapshot.params.get("id");
+        ```
+  - Define a `show` proeprty and assign the corresponding value to it in the `ngOnInit` using the show's id (hint: you need to inject the **ShowsService**)
+  - Define an `array of cast members` and populate it in the `ngOnInit`
+  - Don't forget to **unsubscribe** in the `ngOnDestroy` lifecycle hook 
+  - The resulting **show-details.components.ts** should look like the one [here](https://github.com/murex/tv-shows-app/blob/9-tv-shows-show-details-component/9-tv-shows-show-details-component/src/app/show-details/show-details.component.ts)
+- In the **show-details.component.html** bind the data to show and cast data like [here](https://github.com/murex/tv-shows-app/blob/9-tv-shows-show-details-component/9-tv-shows-show-details-component/src/app/show-details/show-details.component.ts)
+- Run the application: `npm start`
+
+Click on show card, the details should show according to the selected show
+
+Finally, we will mae the back button **navigate** to the shows page. To do this:
+
+- In the **show-details.component.ts** define a `back` method which will navigate back to the shows page. Use the angular router to do so:
+  - Inject the angular `Router` and import it as such:
+    ```ts
+    import { Router } from '@angular/router';
+
+    constructor(private route: ActivatedRoute, private showService: ShowService, private router: Router) {}
+    ```
+  - Implement the back method
+    ```js
+    back(): void {
+        this.router.navigate(['/shows']);
+    }
+    ```
+- Back to the **shows-details.component.html**, use **event binding** to bind the click event to invoke the back method
+    ```html
+    <button class="btn btn-outline-secondary" (click)="back()">
+            <i class="fa fa-chevron-left"></i> Back
+    </button>
+    ```
+- Run the application: `npm start`
+
+Click on a show card then click on back to the return to the shows page.
+
+## [10- Finalization](https://github.com/murex/tv-shows-app/tree/tv-shows-app)
+
+In this section we will extract the show cast table into a separate component to polish our app. The steps to do so are:
+
+- Create the **ShowCast** component inside the show-details folder Run:` ng g c ShowCast`
+- Extract the cast table from the **show-details.component.html** and paste it in the **show-cast.component.html**
+- It should look like this file [here](https://github.com/murex/tv-shows-app/blob/tv-shows-app/tv-shows-app/src/app/show-details/show-cast/show-cast.component.html)
+- Render the ShowCastComponent in the show-details.component.html by adding its selector where the table element was. Don’t forget to only show the cast table if there are cast members, otherwise show a nice message saying so!
+- Pass the cast members as input from the show details to the show cast
+    ```js
+    @Input() castMembers: CastMember[] = [];
+    ```
+- Your **show-details.component.html** should now contain this block
+    ```html
+    <div class="py-5">
+            <button class="btn btn-secondary">Show Cast</button>
+            <div class="py-5" *ngIf="castMembers.length>0; else elseblock">
+                <tv-show-cast [castMembers]="castMembers"></tv-show-cast>
+            </div>
+            <ng-template #elseblock>
+                <h3 class="text-center text-muted">
+                    <i>There are no cast memebers to be displayed</i>
+                </h3>
+            </ng-template>
+    </div>
+    ```
+
+Lastly, implement the Show/Hide functionality. Your ShowDetailsComponent's files should now look like the ones [here](https://github.com/murex/tv-shows-app/tree/tv-shows-app/tv-shows-app/src/app/show-details)
