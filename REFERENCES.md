@@ -7,25 +7,24 @@
 
 # HTML, CSS & Typescript
 
-- https://www.w3schools.com/html/html_intro.asp
-- https://www.w3schools.com/css/default.asp
-- https://developer.mozilla.org/en-US/docs/Web/Events 
-- https://fontawesome.com/
-- https://www.typescriptlang.org/
+- [HTML](https://www.w3schools.com/html/html_intro.asp)
+- [CSS](https://www.w3schools.com/css/default.asp)
+- [HTML Events](https://developer.mozilla.org/en-US/docs/Web/Events)
+- [Font-Awesome](https://fontawesome.com/)
+- [Typescript](https://www.typescriptlang.org/)
 
 # Angular
 
-- https://angular.io/docs
-- https://angular.io/tutorial
+- [Angular Documentation](https://angular.io/docs)
+- [Angular Tutorial](https://angular.io/tutorial)
 
 # UI Component Libraries
 
-- https://getbootstrap.com/ 
-- https://ng.ant.design/docs/introduce/en
-- https://www.primefaces.org/primeng/
-- https://material.angular.io/
+- [Bootstrap](https://getbootstrap.com/)
+- [Ng-Zorro](https://ng.ant.design/docs/introduce/en)
+- [PrimeNg](https://www.primefaces.org/primeng/)
+- [Angular Material](https://material.angular.io/)
 
 # REST
 
-- https://www.geeksforgeeks.org/rest-api-introduction/
-- https://dzone.com/articles/introduction-to-rest-api-restful-web-services
+- [Introduction to REST](https://dzone.com/articles/introduction-to-rest-api-restful-web-services)
